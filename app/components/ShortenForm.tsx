@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import React, { useState } from "react";
 import createNewUrl from "@/app/lib/createNewUrl";
 
 export default function ShortenForm() {
@@ -9,7 +9,7 @@ export default function ShortenForm() {
   const [shortUrl, setShortUrl] = useState("");  // store results + errors
   const [error, setError] = useState("");
 
-  async function handleSubmit(e) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
     const trimmedUrl = originalUrl.trim();
