@@ -2,11 +2,11 @@ import ShortenForm from "./components/ShortenForm";
 
 export default function Home() {
   return (
-    <main style={{ padding: "30px", textAlign: "center" }}>
-      <h1 style={{ marginBottom: "16px" }}>Shorten a URL</h1>
-      <div style={{ display: "inline-block" }}>
-        <ShortenForm />
-      </div>
-    </main>
+    <main className="p-8 text-center">
+  <h1 className="mb-4 text-2xl font-semibold">Shorten a URL</h1>
+  <div className="inline-block">
+    <ShortenForm />
+  </div>
+</main>
   );
 }

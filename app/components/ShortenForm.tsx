@@ -47,75 +47,52 @@ export default function ShortenForm() {
   }
 
   return (
-    <div style={{ width: "600px", margin: "0 auto", marginTop: "40px" }}>
-      <form
-        onSubmit={handleSubmit}
-        style={{ display: "flex", flexDirection: "column"}}
-      >
-        <div>
-          <label style={{ fontWeight: 600 }}>URL</label>
-          <input
-            type="text"
-            value={originalUrl}
-            onChange={(e) => setOriginalUrl(e.target.value)}
-            placeholder="https://example.com/long/url"
-            style={{
-              width: "100%",
-              padding: "10px",
-              border: "1px solid gray",
-              borderRadius: "10px",
-              backgroundColor: "white",
-            }}
-          />
-        </div>
-
-        <div>
-          <label style={{ fontWeight: 600 }}>Alias</label>
-          <input
-            type="text"
-            value={alias}
-            onChange={(e) => setAlias(e.target.value)}
-            placeholder="your-own-custom-alias"
-            style={{
-              width: "100%",
-              padding: "10px",
-              border: "1px solid gray",
-              borderRadius: "10px",
-              backgroundColor: "white",
-
-            }}
-          />
-        </div>
-
-       
-        {error && (
-          <p style={{ color: "red", marginTop: "-6px" }}>{error}</p>
-        )}
-
-        <button
-          type="submit"
-          style={{
-            width: "100%",
-            padding: "12px",
-            borderRadius: "10px",
-            backgroundColor: "green",
-            color: "white",
-            fontWeight: 600,
-            marginTop: "10px",
-          }}
-        >
-          Shorten
-        </button>
-      </form>
-
-      {shortUrl && (
-        <p style={{ marginTop: "15px", fontWeight: 600 }}>
-          Short URL:{" "}
-          <a href={shortUrl} target="_blank">
-            {shortUrl}
-          </a>
-        </p>
-      )}
+    <div className="w-[600px] mx-auto mt-10">
+  <form onSubmit={handleSubmit} className="flex flex-col">
+    
+    <div>
+      <label className="font-semibold">URL</label>
+      <input
+        type="text"
+        value={originalUrl}
+        onChange={(e) => setOriginalUrl(e.target.value)}
+        placeholder="https://example.com/long/url"
+        className="w-full p-2.5 border border-gray-500 rounded-xl bg-white"
+      />
     </div>
+
+    <div className="mt-4">
+      <label className="font-semibold">Alias</label>
+      <input
+        type="text"
+        value={alias}
+        onChange={(e) => setAlias(e.target.value)}
+        placeholder="your-own-custom-alias"
+        className="w-full p-2.5 border border-gray-500 rounded-xl bg-white"
+      />
+    </div>
+
+    {error && (
+      <p className="text-red-600 -mt-1.5">{error}</p>
+    )}
+
+    <button
+      type="submit"
+      className="w-full p-3 rounded-xl bg-green-600 text-white font-semibold mt-2.5"
+    >
+      Shorten
+    </button>
+  </form>
+
+  {shortUrl && (
+    <p className="mt-4 font-semibold">
+      Short URL:{" "}
+      <a href={shortUrl} target="_blank" className="underline text-blue-600">
+        {shortUrl}
+      </a>
+    </p>
+  )}
+</div>
+
   );
 }
